@@ -7,37 +7,33 @@ import {
   ListGroup,
   ListGroupItem,
 } from "react-bootstrap";
-import useMovies from "../hooks/useMovies";
 
-function MoviesPage() {
-  const { data, error, isError, isLoading } = useMovies();
-
+function MovieCard({ data }) {
   return (
-    <Container className="py-3">
-      <h1>Movies</h1>
+    <>
       {data && (
         <Row>
-          {data.map((movies) => (
+          {data.map((movie) => (
             <Col>
               <Card
                 style={{ width: "13rem" }}
-                key={movies.title}
+                key={movie.title}
                 className="m-4"
               >
                 <Card.Img
                   variant="top"
-                  src={"https://image.tmdb.org/t/p/w500" + movies.poster_path}
+                  src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
                 />
                 <Card.Body>
-                  <Card.Title>{movies.title}</Card.Title>
+                  <Card.Title>{movie.title}</Card.Title>
                 </Card.Body>
               </Card>
             </Col>
           ))}
         </Row>
       )}
-    </Container>
+    </>
   );
 }
 
-export default MoviesPage;
+export default MovieCard;

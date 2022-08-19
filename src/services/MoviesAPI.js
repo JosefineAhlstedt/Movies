@@ -16,13 +16,13 @@ const getPopular = async () => {
 //Get toplisted movies
 const getTop = async () => {
   const res = await axios.get(`${BASE_URL}/top_rated${KEY}`);
-  return res.data;
+  return res.data.results;
 };
 
 //Get the movies in cinema right now
 const getTheaters = async () => {
   const res = await axios.get(`${BASE_URL}/now_playing${KEY}`);
-  return res.data;
+  return res.data.results;
 };
 
 const functions = {
