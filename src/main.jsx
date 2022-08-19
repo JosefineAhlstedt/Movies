@@ -5,7 +5,16 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
 
 // Create a client
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      //queryFn: defaultQueryFn,
+      //refetchOnWindowFocus: false,
+      //staleTime: 5 * 60 * 1000, // 5 minutes
+      //cacheTime: 15 * 60 * 1000, // 15 minutes
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
