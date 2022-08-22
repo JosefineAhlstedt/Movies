@@ -29,7 +29,7 @@ const getTheaters = async () => {
 const getMovie = async ({ queryKey }) => {
   const [movie, { id }] = queryKey;
   const res = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&language=en-US`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&append_to_response=credits,images`
   );
   return res.data;
 };

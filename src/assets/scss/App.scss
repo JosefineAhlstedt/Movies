@@ -4,3 +4,20 @@ body {
   background-color: black;
   color: white;
 }
+
+.list-group-mine {
+  color: white;
+}
+
+.list-group-item {
+  background-color: black;
+  border-top: 1px solid rgb(0, 0, 0);
+  border-radius: 0;
+  color: #fff;
+  margin: 0px;
+}
+
+.list-group {
+  --bs-list-group-item-padding-x: 0;
+  --bs-list-group-item-padding-y: 0;
+}
