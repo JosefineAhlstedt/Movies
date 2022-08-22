@@ -6,6 +6,7 @@ import "./assets/scss/App.scss";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
 import TopMoviesPage from "./pages/TopMoviesPage";
 import CinemaMoviePage from "./pages/CinemaMoviePage";
+import MoviePage from "./pages/MoviePage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/popular" element={<PopularMoviesPage />} />
         <Route path="/top" element={<TopMoviesPage />} />
         <Route path="/cinema" element={<CinemaMoviePage />} />
+        <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -12,7 +12,7 @@ function PopularMoviesPage() {
 
   return (
     <Container className="py-3">
-      <h1>Movies</h1>
+      <h1>Popular movies</h1>
 
       {data && <MovieCard data={data} />}
     </Container>

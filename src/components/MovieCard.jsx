@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Button, Row, Col, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function MovieCard({ data }) {
   return (
@@ -18,7 +12,7 @@ function MovieCard({ data }) {
               <Card
                 style={{ width: "13rem" }}
                 key={movie.title}
-                className="m-4"
+                className="m-4 text-center"
               >
                 <Card.Img
                   variant="top"
@@ -26,6 +20,10 @@ function MovieCard({ data }) {
                 />
                 <Card.Body>
                   <Card.Title>{movie.title}</Card.Title>
+                  <Card.Title>{movie.id}</Card.Title>
+                  <Button variant="warning" as={Link} to={`/movie/${movie.id}`}>
+                    Read more
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
