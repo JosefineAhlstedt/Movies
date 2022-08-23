@@ -54,9 +54,9 @@ const getGenres = async () => {
 
 //Get one genre
 const getChosenGenre = async ({ queryKey }) => {
-  const [genre, { id }] = queryKey;
+  const [genre, { id }, { page }] = queryKey;
   const res = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`
   );
   console.log(res.data);
   return res.data.results;
