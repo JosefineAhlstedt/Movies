@@ -34,11 +34,21 @@ const getMovie = async ({ queryKey }) => {
   return res.data;
 };
 
+//Get actor
+const getActor = async ({ queryKey }) => {
+  const [actor, { id }] = queryKey;
+  const res = await axios.get(
+    `https://api.themoviedb.org/3/person/${id}?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&append_to_response=movie_credits`
+  );
+  return res.data;
+};
+
 const functions = {
   getPopular,
   getTop,
   getTheaters,
   getMovie,
+  getActor,
 };
 
 export default functions;
