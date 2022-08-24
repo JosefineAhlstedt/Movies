@@ -1,13 +1,26 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import Pagination from "react-bootstrap/Pagination";
+import { useSearchParams } from "react-router-dom";
 
-function PaginationComponent({ page, nextPage, prevPage }) {
+function PaginationComponent({ page, turnPage }) {
   return (
     <Pagination>
-      <Pagination.Prev onClick={prevPage} />
+      <Pagination.Prev
+        onClick={() => {
+          turnPage({
+            page: Number(page) - 1,
+          });
+        }}
+      />
       <Pagination.Item>{page}</Pagination.Item>
-      <Pagination.Next onClick={nextPage} />
+      <Pagination.Next
+        onClick={() => {
+          turnPage({
+            page: Number(page) + 1,
+          });
+        }}
+      />
     </Pagination>
   );
 }
