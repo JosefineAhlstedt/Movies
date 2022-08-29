@@ -1,20 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Container,
-  ListGroup,
-  ListGroupItem,
-  Row,
-  Image,
-  Col,
-  Button,
-} from "react-bootstrap";
+import { Container, ListGroup, Row, Image, Col } from "react-bootstrap";
 
 function ActorCard({ data }) {
-  console.log("This is the data", data);
   return (
     <>
       {data && (
+        //When we have the data from the page the data displays in a grid
         <Container>
           <Row className="align-items-center">
             <h1>{data.name}</h1>
@@ -37,6 +29,7 @@ function ActorCard({ data }) {
           <ListGroup variant="flush" className="mt-4 mb-4">
             <ListGroup.Item className="fw-bold">Movies</ListGroup.Item>
             {data.movie_credits.cast.map((movie) => (
+              //List all the movies the actor was in and link them to the separate movie page
               <>
                 <ListGroup.Item as={Link} to={`/movie/${movie.id}`}>
                   {movie.original_title}

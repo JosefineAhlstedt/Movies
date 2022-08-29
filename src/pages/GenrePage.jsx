@@ -19,14 +19,12 @@ function GenrePage() {
     MoviesAPI.getChosenGenre
   );
 
-  //   useEffect(() => {
-  //     setSearchParams({ page: 1 });
-  //   }, []);
-
   return (
     <Container className="py-3">
       {data && <MovieCard data={data} />}
       {data && <PaginationComponent page={page} turnPage={setSearchParams} />}
+      {isError && <h1>Something went wrong...</h1>}
+      {isLoading && <h1>Loading...</h1>}
     </Container>
   );
 }

@@ -7,6 +7,7 @@ function PaginationComponent({ page, turnPage }) {
   return (
     <Pagination className="justify-content-center align-items-center text-align-center">
       <Pagination.Prev
+        //Using the function (prop) change the page
         onClick={() => {
           turnPage({
             page: Number(page) - 1,

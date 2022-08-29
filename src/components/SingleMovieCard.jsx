@@ -10,6 +10,7 @@ import {
   Button,
 } from "react-bootstrap";
 
+//Show a single movie with selected information
 function SingleMovieCard({ data }) {
   return (
     <>

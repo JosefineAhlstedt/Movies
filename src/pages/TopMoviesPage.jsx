@@ -15,6 +15,8 @@ function TopMoviesPage() {
       <h1>Top movies</h1>
 
       {data && <MovieCard data={data} />}
+      {isError && <h1>Something went wrong...</h1>}
+      {isLoading && <h1>Loading...</h1>}
     </Container>
   );
 }

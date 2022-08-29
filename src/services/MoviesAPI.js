@@ -32,7 +32,7 @@ const getTheaters = async () => {
 const getMovie = async ({ queryKey }) => {
   const [movie, { id }] = queryKey;
   const res = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}${KEY}&append_to_response=credits,images`
+    `${BASE_URL}${id}${KEY}&append_to_response=credits,images`
   );
   return res.data;
 };

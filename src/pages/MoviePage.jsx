@@ -14,6 +14,8 @@ function MoviePage() {
   return (
     <Container className="py-3">
       {data && <SingleMovieCard data={data} />}
+      {isError && <h1>Something went wrong...</h1>}
+      {isLoading && <h1>Loading...</h1>}
     </Container>
   );
 }

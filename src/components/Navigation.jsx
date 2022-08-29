@@ -8,7 +8,7 @@ const Navigation = () => {
     <Navbar bg="dark" variant="dark" expand="md">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          React Template
+          Awesome movies
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

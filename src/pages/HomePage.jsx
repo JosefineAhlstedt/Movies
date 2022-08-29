@@ -11,6 +11,7 @@ const HomePage = () => {
   );
 
   return (
+    //Display all the genres in buttons that directs you to the chosen genre page
     <Container className="py-3">
       <h1>Genres!</h1>
       <Container>
