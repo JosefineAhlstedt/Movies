@@ -8,7 +8,7 @@ function MovieCard({ data }) {
       {data && (
         <Row>
           {data.map((movie) => (
-            <Col md={3} sm={6} xs={9} lg={3}>
+            <Col md={3} sm={6} xs={9} lg={3} key={movie.id}>
               <Card
                 style={{
                   textDecoration: "none",

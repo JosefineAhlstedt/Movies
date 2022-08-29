@@ -9,7 +9,6 @@ const HomePage = () => {
     ["genre"],
     MoviesAPI.getGenres
   );
-  console.log(data);
 
   return (
     <Container className="py-3">
@@ -22,6 +21,7 @@ const HomePage = () => {
                 className="m-2"
                 variant="outline-light"
                 as={Link}
+                key={genre.id}
                 to={`/genre/${genre.id}`}
               >
                 {genre.name}
