@@ -13,11 +13,15 @@ function ActorPage() {
     ["actor", { id }],
     MoviesAPI.getActor
   );
+  const { data: movies } = useQuery(
+    ["actormovies", { id }],
+    MoviesAPI.getActorMovies
+  );
 
   //Using the data in the ActorCard component and display it (if we get the data)
   return (
     <Container className="py-3">
-      {data && <ActorCard data={data} />}
+      {data && movies && <ActorCard data={data} movies={movies} />}
       {isError && <h1>Something went wrong...</h1>}
       {isLoading && <h1>Loading...</h1>}
     </Container>

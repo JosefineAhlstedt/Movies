@@ -32,7 +32,7 @@ const getTheaters = async () => {
 const getMovie = async ({ queryKey }) => {
   const [movie, { id }] = queryKey;
   const res = await axios.get(
-    `${BASE_URL}${id}${KEY}&append_to_response=credits,images`
+    `${BASE_URL}${id}${KEY}&include_adult=false&append_to_response=credits,images`
   );
   return res.data;
 };
@@ -41,15 +41,24 @@ const getMovie = async ({ queryKey }) => {
 const getActor = async ({ queryKey }) => {
   const [actor, { id }] = queryKey;
   const res = await axios.get(
-    `https://api.themoviedb.org/3/person/${id}${KEY}&append_to_response=movie_credits`
+    `https://api.themoviedb.org/3/person/${id}${KEY}`
   );
   return res.data;
+};
+
+//Get actor
+const getActorMovies = async ({ queryKey }) => {
+  const [actormovies, { id }] = queryKey;
+  const res = await axios.get(
+    `https://api.themoviedb.org/3/discover/movie${KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_cast=${id}`
+  );
+  return res.data.results;
 };
 
 //Get genres
 const getGenres = async () => {
   const res = await axios.get(
-    `https://api.themoviedb.org/3/genre/movie/list${KEY}`
+    `https://api.themoviedb.org/3/genre/movie/list${KEY}&include_adult=false`
   );
   return res.data.genres;
 };
@@ -71,6 +80,7 @@ const functions = {
   getActor,
   getGenres,
   getChosenGenre,
+  getActorMovies,
 };
 
 export default functions;

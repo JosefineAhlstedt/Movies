@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, ListGroup, Row, Image, Col } from "react-bootstrap";
 
-function ActorCard({ data }) {
+function ActorCard({ data, movies }) {
   return (
     <>
       {data && (
@@ -28,10 +28,14 @@ function ActorCard({ data }) {
           <p>{data.biography}</p>
           <ListGroup variant="flush" className="mt-4 mb-4">
             <ListGroup.Item className="fw-bold">Movies</ListGroup.Item>
-            {data.movie_credits.cast.map((movie) => (
+            {movies.map((movie) => (
               //List all the movies the actor was in and link them to the separate movie page
               <>
-                <ListGroup.Item as={Link} to={`/movie/${movie.id}`}>
+                <ListGroup.Item
+                  key={movie.id}
+                  as={Link}
+                  to={`/movie/${movie.id}`}
+                >
                   {movie.original_title}
                 </ListGroup.Item>
               </>

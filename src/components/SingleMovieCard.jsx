@@ -37,12 +37,13 @@ function SingleMovieCard({ data }) {
           <Row className="mt-4 justify-content-left">
             {data.genres.map((genre) => (
               <>
-                <Col xs="5" md="3" lg="2" className="m-1">
+                <Col xs="5" md="3" lg="2" className="m-1" key={genre.id}>
                   <Button
                     style={{ width: "9em" }}
                     as={Link}
                     to={`/genre/${genre.id}`}
                     variant="outline-light"
+                    key={genre.name}
                   >
                     {genre.name}
                   </Button>
@@ -52,9 +53,13 @@ function SingleMovieCard({ data }) {
           </Row>
           <ListGroup variant="flush" className="mt-4 mb-4">
             <ListGroup.Item className="fw-bold">Actors</ListGroup.Item>
-            {data.credits.cast.slice(0, 5).map((actor) => (
+            {data.credits.cast.map((actor) => (
               <>
-                <ListGroup.Item as={Link} to={`/actor/${actor.id}`}>
+                <ListGroup.Item
+                  key={actor.name}
+                  as={Link}
+                  to={`/actor/${actor.id}`}
+                >
                   {actor.name}
                 </ListGroup.Item>
               </>
