@@ -4,8 +4,6 @@ import axios from "axios";
 const BASE_URL = "https://api.themoviedb.org/3/movie/";
 const KEY = import.meta.env.VITE_API_KEY;
 
-axios.defaults.baseURL = "http://localhost:3000";
-
 //Get the most popular movies
 const getPopular = async () => {
   const res = await axios.get(
