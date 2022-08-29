@@ -8,20 +8,25 @@ axios.defaults.baseURL = "http://localhost:3000";
 
 //Get the most popular movies
 const getPopular = async () => {
-  const res = await axios.get(`${BASE_URL}popular${KEY}`);
-  console.log(res.data.results);
+  const res = await axios.get(
+    `${BASE_URL}popular${KEY}&language=en-US&page=1&include_adult=false`
+  );
   return res.data.results;
 };
 
 //Get toplisted movies
 const getTop = async () => {
-  const res = await axios.get(`${BASE_URL}top_rated${KEY}`);
+  const res = await axios.get(
+    `${BASE_URL}top_rated${KEY}&language=en-US&page=1&include_adult=false`
+  );
   return res.data.results;
 };
 
 //Get the movies in cinema right now
 const getTheaters = async () => {
-  const res = await axios.get(`${BASE_URL}now_playing${KEY}`);
+  const res = await axios.get(
+    `${BASE_URL}now_playing${KEY}&language=en-US&page=1&include_adult=false`
+  );
   return res.data.results;
 };
 
@@ -29,7 +34,7 @@ const getTheaters = async () => {
 const getMovie = async ({ queryKey }) => {
   const [movie, { id }] = queryKey;
   const res = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&append_to_response=credits,images`
+    `https://api.themoviedb.org/3/movie/${id}${KEY}&append_to_response=credits,images`
   );
   return res.data;
 };
@@ -38,7 +43,7 @@ const getMovie = async ({ queryKey }) => {
 const getActor = async ({ queryKey }) => {
   const [actor, { id }] = queryKey;
   const res = await axios.get(
-    `https://api.themoviedb.org/3/person/${id}?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&append_to_response=movie_credits`
+    `https://api.themoviedb.org/3/person/${id}${KEY}&append_to_response=movie_credits`
   );
   return res.data;
 };
@@ -46,7 +51,7 @@ const getActor = async ({ queryKey }) => {
 //Get genres
 const getGenres = async () => {
   const res = await axios.get(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=2cf58f4ae4a18a5788ace7d7765b5d45`
+    `https://api.themoviedb.org/3/genre/movie/list${KEY}`
   );
   return res.data.genres;
 };
@@ -55,7 +60,7 @@ const getGenres = async () => {
 const getChosenGenre = async ({ queryKey }) => {
   const [genre, { id }, { page }] = queryKey;
   const res = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`
+    `https://api.themoviedb.org/3/discover/movie${KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`
   );
   return res.data.results;
 };
