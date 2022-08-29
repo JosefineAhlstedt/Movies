@@ -8,7 +8,6 @@ import TopMoviesPage from "./pages/TopMoviesPage";
 import CinemaMoviePage from "./pages/CinemaMoviePage";
 import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
-import GenresPage from "./pages/GenresPage";
 import GenrePage from "./pages/GenrePage";
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
         <Route path="/popular" element={<PopularMoviesPage />} />
         <Route path="/top" element={<TopMoviesPage />} />
         <Route path="/cinema" element={<CinemaMoviePage />} />
-        <Route path="/genre" element={<GenresPage />} />
         <Route path="/genre/:id/" element={<GenrePage />} />
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="/actor/:id" element={<ActorPage />} />

@@ -8,22 +8,29 @@ function MovieCard({ data }) {
       {data && (
         <Row>
           {data.map((movie) => (
-            <Col>
+            <Col md={3} sm={6} xs={9} lg={3}>
               <Card
-                style={{ width: "13rem" }}
+                style={{
+                  textDecoration: "none",
+                  backgroundColor: "black",
+                }}
                 key={movie.title}
-                className="m-4 text-center"
+                className="m-3 text-center"
+                as={Link}
+                to={`/movie/${movie.id}`}
               >
                 <Card.Img
                   variant="top"
                   src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
                 />
                 <Card.Body>
-                  <Card.Title>{movie.title}</Card.Title>
-                  <Card.Title>{movie.id}</Card.Title>
-                  <Button variant="warning" as={Link} to={`/movie/${movie.id}`}>
-                    Read more
-                  </Button>
+                  <Card.Title
+                    style={{
+                      fontSize: "0.7rem",
+                    }}
+                  >
+                    {movie.title}
+                  </Card.Title>
                 </Card.Body>
               </Card>
             </Col>

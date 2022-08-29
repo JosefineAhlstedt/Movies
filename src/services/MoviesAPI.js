@@ -2,8 +2,7 @@
 import axios from "axios";
 
 const BASE_URL = "https://api.themoviedb.org/3/movie/";
-const KEY =
-  "?api_key=2cf58f4ae4a18a5788ace7d7765b5d45&language=en-US&page=1&include_adult=false";
+const KEY = import.meta.env.VITE_API_KEY;
 
 axios.defaults.baseURL = "http://localhost:3000";
 

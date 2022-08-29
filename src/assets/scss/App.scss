@@ -21,3 +21,16 @@ body {
   --bs-list-group-item-padding-x: 0;
   --bs-list-group-item-padding-y: 0;
 }
+
+.card-title {
+  text-decoration: none;
+  color: white;
+}
+.card {
+  transition: transform 0.5s, filter 0.5s ease-in-out;
+  filter: grayscale(100%);
+}
+.card:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}

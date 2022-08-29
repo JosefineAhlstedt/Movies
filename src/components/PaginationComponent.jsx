@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 
 function PaginationComponent({ page, turnPage }) {
   return (
-    <Pagination>
+    <Pagination className="justify-content-center align-items-center text-align-center">
       <Pagination.Prev
         onClick={() => {
           turnPage({
