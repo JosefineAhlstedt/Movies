@@ -1,7 +1,7 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import Pagination from "react-bootstrap/Pagination";
-import { useSearchParams } from "react-router-dom";
+import React from "react"
+import { Container } from "react-bootstrap"
+import Pagination from "react-bootstrap/Pagination"
+import { useSearchParams } from "react-router-dom"
 
 function PaginationComponent({ page, turnPage }) {
   return (
@@ -9,9 +9,11 @@ function PaginationComponent({ page, turnPage }) {
       <Pagination.Prev
         //Using the function (prop) change the page
         onClick={() => {
-          turnPage({
-            page: Number(page) - 1,
-          });
+          if (page > 1) {
+            turnPage({
+              page: Number(page) - 1,
+            })
+          }
         }}
       />
       <Pagination.Item>{page}</Pagination.Item>
@@ -19,11 +21,11 @@ function PaginationComponent({ page, turnPage }) {
         onClick={() => {
           turnPage({
             page: Number(page) + 1,
-          });
+          })
         }}
       />
     </Pagination>
-  );
+  )
 }
 
-export default PaginationComponent;
+export default PaginationComponent
